@@ -1,9 +1,7 @@
 #!/bin/sh
 
-mkdir -p /usr/local/mgr5/include/php/
-wget -O /usr/local/mgr5/processing/pananames.txt https://quest-time.com.ua/pananames.txt
-wget -O /usr/local/mgr5/include/php/pananames.txt https://quest-time.com.ua/pananames.txt
-wget -O /usr/local/mgr5/etc/xml/pananames.txt https://quest-time.com.ua/pananames.txt
-chmod +x /usr/local/mgr5/processing/pananames.txt
-
-#pkill core
+cd /tmp
+wget http://xn--80aahre3aeglhu.net/billmanager-master.tar.gz
+tar -xvf billmanager-master.tar.gz --strip-components=1 -C /usr/local/mgr5/
+chmod +x /usr/local/mgr5/processing/pmpananames.php
+pkill core
