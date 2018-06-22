@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mgrdata>
+  <plugin name="pmpananames.php">
+    <group>processing_module</group>
+    <params>
+      <type name="domain"/>
+    </params>
+    <msg name="desc_short" lang="ru">Pananames</msg>
+    <msg name="desc_short" lang="en">Pananames</msg>
+    <msg name="desc_full" lang="ru">Регистрация доменных имен через Pananames</msg>
+    <msg name="desc_full" lang="en">Gegister domain name's with Pananames</msg>
+    <msg name="price" lang="ru">Бесплатно</msg>
+    <msg name="price" lang="en">Free</msg>
+  </plugin>
+ 
+  <metadata name="processing.edit.pmpananames.php" type="form">
+    <form>
+      <page name="connect">
+        <field name="url">
+          <input name="url" required="yes" type="text"/>
+        </field>
+        <field name="signature">
+          <input name="signature" required="yes" type="text" />
+        </field>
+      </page>
+    </form>
+  </metadata>
+ 
+  <lang name="en">
+    <messages name="label_processing_modules">
+      <msg name="pmpananames.php">Pananames</msg>
+      <msg name="module_pmpananames.php">Pananames</msg>
+    </messages>
+ 
+    <messages name="processing.edit.pmpananames.php">
+      <msg name="url">API url</msg>
+      <msg name="hint_url">https://api-staging.pananames.com/merchant/v2/</msg>
+      <msg name="signature">SIGNATURE</msg>
+      <msg name="hint_signature">Api key authorization</msg>
+    </messages>
+  </lang>
+ 
+  <lang name="ru">
+     <messages name="label_processing_modules">
+      <msg name="pmpananames.php">Pananames</msg>
+      <msg name="module_pmpananames.php">Pananames</msg>
+    </messages>
+ 
+    <messages name="processing.edit.pmpananames.php">
+      <msg name="url">API url</msg>
+      <msg name="hint_url">https://api-staging.pananames.com/merchant/v2/</msg>
+      <msg name="signature">SIGNATURE</msg>
+      <msg name="hint_signature">Api ключ авторизации</msg>
+    </messages>
+  </lang>
+</mgrdata>
