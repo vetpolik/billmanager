@@ -38,10 +38,14 @@ function LocalQuery($function, $param, $auth = NULL) {
 }
 
 function GetConnection() {
+    
+    $connectionData = file('/usr/local/mgr5/etc/my.cnf');
+    $user = explode(' = ', $connectionData[1]);
+    $pass = explode(' = ', $connectionData[2]);
     $param_map = array();
     $param_map["DBHost"] = "localhost";
-    $param_map["DBUser"] = "coremgr";
-    $param_map["DBPassword"] = "ZPTD2Wv4OQ";
+    $param_map["DBUser"] = $user[1];
+    $param_map["DBPassword"] = $pass[1];
     $param_map["DBName"] = "billmgr";
     return new DB($param_map["DBHost"], $param_map["DBUser"], $param_map["DBPassword"], $param_map["DBName"]);
 }
