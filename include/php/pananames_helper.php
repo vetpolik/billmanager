@@ -167,7 +167,9 @@ class Error extends Exception
     }
     public function __toString()
     {
-    	global $default_xml_string;
+    	$default_xml_string = '<?xml version="1.0" encoding="UTF-8"?>
+        	<doc>
+        	</doc>';
         $error_xml = simplexml_load_string($default_xml_string);
         $error_node = $error_xml->addChild("error");
         $error_node->addAttribute("type", parent::getMessage());
