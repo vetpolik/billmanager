@@ -43,7 +43,7 @@ function GetConnection() {
     $pass = explode(' = ', $connectionData[2]);
     $param_map = array();
     $param_map["DBHost"] = "localhost";
-    $param_map["DBUser"] = tirm($user[1]);
+    $param_map["DBUser"] = trim($user[1]);
     $param_map["DBPassword"] = trim($pass[1]);
     $param_map["DBName"] = "billmgr";
     return new DB($param_map["DBHost"], $param_map["DBUser"], $param_map["DBPassword"], $param_map["DBName"]);
