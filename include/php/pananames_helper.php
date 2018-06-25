@@ -9,7 +9,7 @@ class DB extends mysqli {
             throw new Error("MYSQLI_INIT_COMMAND Fail");
         if (!parent::options(MYSQLI_OPT_CONNECT_TIMEOUT, 5))
             throw new Error("MYSQLI_OPT_CONNECT_TIMEOUT Fail");
-        if (!parent::real_connect($host, 'coremgr', 'ZPTD2Wv4OQ', $db))
+        if (!parent::real_connect($host, $user, $pass, $db))
             throw new Error("Connection ERROR. ".mysqli_connect_errno().": ".mysqli_connect_error());
         setToLog("MySQL connection established");
     }
@@ -38,14 +38,13 @@ function LocalQuery($function, $param, $auth = NULL) {
 }
 
 function GetConnection() {
-    
     $connectionData = file('/usr/local/mgr5/etc/my.cnf');
     $user = explode(' = ', $connectionData[1]);
     $pass = explode(' = ', $connectionData[2]);
     $param_map = array();
     $param_map["DBHost"] = "localhost";
-    $param_map["DBUser"] = $user[1];
-    $param_map["DBPassword"] = $pass[1];
+    $param_map["DBUser"] = tirm($user[1]);
+    $param_map["DBPassword"] = trim($pass[1]);
     $param_map["DBName"] = "billmgr";
     return new DB($param_map["DBHost"], $param_map["DBUser"], $param_map["DBPassword"], $param_map["DBName"]);
 }
